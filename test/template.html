@@ -1,0 +1,24 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <title>Library testing page</title>
+</head>
+
+<body>
+  <div id="container-1"></div>
+  <div id="container-2"></div>
+  <div id="container-3"></div>
+
+  <script>
+    var c2 = document.querySelector('#container-2');
+
+    var App = AddonCompLib.App
+    var React = AddonCompLib.React;
+    var ReactDOM = AddonCompLib.ReactDOM;
+
+    ReactDOM.render(React.createElement(React.StrictMode, {}, React.createElement(App)), c2);
+  </script>
+</body>
+
+</html>

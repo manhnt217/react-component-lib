@@ -6,7 +6,7 @@
   "scripts": {
     "build:prod": "webpack",
     "build:dev": "webpack --mode development --devtool source-map",
-    "start": "webpack serve --config webpack.config.js --devtool source-map --progress --profile --content-base src/",
+    "start": "webpack serve --mode development --env dev_server --devtool source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -35,6 +35,6 @@
     "webpack": "^5.21.2",
     "webpack-clean-plugin": "^0.2.3",
     "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.0.0-beta.0"
   }
 }

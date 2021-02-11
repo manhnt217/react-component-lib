@@ -1,9 +1,7 @@
-const webpack = require("webpack");
 const path = require("path");
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { library } = require("webpack");
 
 const rules = [
   {
@@ -55,10 +53,9 @@ const rules = [
   // },
 ];
 
-module.exports = {
+module.exports = (env) => ({
   entry: [
-    './src/index.js',
-    // './src/App.js',
+    './src/main.js',
   ],
 
   module: {
@@ -81,8 +78,22 @@ module.exports = {
       chunks: "all",
     }
   },
-  plugins: [
-    // new HtmlWebPackPlugin(),
-    new CleanWebpackPlugin()
-  ]
-}
+  plugins: env.dev_server ?
+      [
+          new HtmlWebPackPlugin({
+            template: 'test/template.html',
+            scriptLoading: 'blocking',
+            inject: 'head'
+          })
+      ]
+      :
+      [
+          new CleanWebpackPlugin()
+      ]
+  ,
+  devServer: {
+    static: path.resolve(__dirname, 'test'),
+    compress: true,
+    port: 8123
+  }
+})
