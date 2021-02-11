@@ -1,13 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-
-const container = document.createElement('div');
-document.body.appendChild(container);
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  container
-);
+export { default as React } from 'react';
+export { default as ReactDOM } from 'react-dom';
+export { default as App } from './App';

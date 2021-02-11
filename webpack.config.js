@@ -3,6 +3,7 @@ const path = require("path");
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { library } = require("webpack");
 
 const rules = [
   {
@@ -55,7 +56,10 @@ const rules = [
 ];
 
 module.exports = {
-  entry: './src/index.js',
+  entry: [
+    './src/index.js',
+    // './src/App.js',
+  ],
 
   module: {
     rules: [{ oneOf: rules }]
@@ -63,7 +67,9 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, './target'),
-    filename: '[name].[chunkhash].bundle.js'
+    filename: '[name].[chunkhash].bundle.js',
+    library: 'AddonCompLib',
+    libraryTarget: 'assign-properties'
   },
 
   mode: "production",
@@ -76,7 +82,7 @@ module.exports = {
     }
   },
   plugins: [
-    new HtmlWebPackPlugin(),
+    // new HtmlWebPackPlugin(),
     new CleanWebpackPlugin()
   ]
 }
