@@ -1,26 +1,17 @@
+// import Treeview from 'react-treeview-component';
+import TreeView, { TreeNode } from 'react-treeview';
 import React from 'react';
-
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TreeView nodeLabel="A" key="A" defaultCollapsed={false}>
+      <TreeView nodeLabel="B" key="B" defaultCollapsed={true}>
+        <TreeView nodeLabel="C" key="C" defaultCollapsed={false}>
+          <div>Hello world</div>
+        </TreeView>
+      </TreeView>
+    </TreeView>
   );
 }
 

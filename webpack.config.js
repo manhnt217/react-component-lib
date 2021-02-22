@@ -55,7 +55,8 @@ const rules = [
 
 module.exports = (env) => ({
   entry: [
-    './src/main.js',
+    './src/index.js',
+    // './src/main.js',
   ],
 
   module: {
@@ -81,9 +82,9 @@ module.exports = (env) => ({
   plugins: env.dev_server ?
       [
           new HtmlWebPackPlugin({
-            template: 'test/template.html',
-            scriptLoading: 'blocking',
-            inject: 'head'
+            // template: 'test/template.html',
+            // scriptLoading: 'blocking',
+            // inject: 'head'
           })
       ]
       :
